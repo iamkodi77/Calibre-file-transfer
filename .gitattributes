@@ -1,0 +1,3 @@
+# Keep each launcher compatible with its platform on checkout.
+*.bat text eol=crlf
+*.sh text eol=lf
