@@ -6,7 +6,28 @@ Upload EPUB, CBZ, PDF, images, or any other file to your library; select a conne
 
 ## Quick start
 
-Requires Python 3.10 or newer.
+Install **Python 3.10 or newer** first. On Windows, enable **Add Python to PATH** during installation. On Debian/Ubuntu, you may also need the `python3-venv` package.
+
+**Windows:** double-click `run.bat`, or open a terminal in the project folder and run:
+
+```bat
+.\run.bat
+```
+
+**macOS / Linux:** open a terminal in the project folder and run:
+
+```sh
+./run.sh
+```
+
+The launcher creates a local `.venv` on the first run, automatically installs or checks the packages in `requirements.txt`, and starts Leafline. The first installation needs an internet connection; subsequent runs reuse the environment. You can pass configuration arguments through either launcher, for example `./run.sh --port 8080` or `.\run.bat --port 8080`. If `run.sh` is not executable after downloading, use `chmod +x run.sh` or run `sh run.sh`.
+
+Open **http://localhost:8000** on the computer running the server (or use your chosen port). Choose **Add files**, or drag files onto the page. The app shows the server's LAN address in **Devices**; use that address on the e-reader, not `localhost`.
+
+Keep the terminal open while using the server. Press Ctrl+C to stop it. Your library is stored in `data/` by default; back up this directory while the server is stopped. If a previously created `.venv` is broken or belongs to another operating system, remove or rename it and run the launcher again.
+
+<details>
+<summary>Manual setup (without a launcher)</summary>
 
 ```sh
 python3 -m venv .venv
@@ -14,10 +35,7 @@ source .venv/bin/activate             # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
-
-Open **http://localhost:8000** on the computer running the server. Choose **Add files**, or drag files onto the page. The app shows the server's LAN address in **Devices**; use that address on the e-reader, not `localhost`.
-
-Keep the terminal open while using the server. Press Ctrl+C to stop it. Your library is stored in `data/` by default; back up this directory while the server is stopped.
+</details>
 
 ## Connect a reader
 
